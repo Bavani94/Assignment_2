@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "sg.edu.sp.QrGrp"
+        }
+    }
+}

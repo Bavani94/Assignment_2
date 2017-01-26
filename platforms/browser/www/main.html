@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include Esri stylesheets -->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.19/esri/css/esri.css">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Sungei Buloh Wetland Reserve</title>
+        <script src="js/jquery-2.2.4.js"></script>
+        <script src="js/jquery.mobile-1.4.5.js"></script>
+    </head>
+    <body>
+        <!-- Main Page -->
+        <div id="home" data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>Sungei Buloh Wetland Reserve</h1>
+            </div><!--page1 header-->
+            <div data-role="main" class="ui-content">
+                <p>Get to know where Sungei Buloh Wetland Reserve is located</p>
+                <div align="center">
+                    <img src="img/img1.png" width="250" height="300" alt=""/>
+                </div>
+                <a href="#map1" class="ui-btn">Locate Them</a> <!--button to load the location map-->
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
+                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div><!--Main Page -->
+        
+        <!-- Feature Page -->
+        <div id="feature" data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1>Sungei Buloh Wetland Reserve</h1>
+            </div><!--page1 header-->
+            <div data-role="main" class="ui-content">
+                <p>Interesting Features in Sungei Buloh Wetland Reserve</p>
+                <div align="center">
+                    <img src="img/DragonflyPod.png" width="250" height="300" alt=""/>
+                    <p>Dragonfly Pod</p>
+                </div>
+                <a href="#map2" class="ui-btn">Locate Them</a> <!--button to load the location map-->
+            </div>
+            <div data-role="main" class="ui-content">
+                <div align="center">
+                    <img src="img/EaglePoint.png" width="250" height="300" alt=""/>
+                    <p>Eagle Point</p>
+                </div>
+                <a href="#map3" class="ui-btn">Locate Them</a> <!--button to load the location map-->
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
+                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- End of Feature Page -->
+        
+        <!-- About Page-->
+<div id="about" data-role="page" data-theme="g">
+  <div data-role="header">
+    <h1>About</h1>
+  </div><!--About header-->
+  <div data-role="main" class="ui-content">
+        <div data-role="collapsible">
+            <h1>Description</h1>
+        	<p>This is an app about the Sungei Buloh Wetland Reserve.</p>
+            <p>It is First Singapore's ASEAN Heritage Park.</p>
+            <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network
+As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forests.</p>
+        </div>
+        <div data-role="collapsible">
+            <h1>Features</h1>
+        	<p>Exciting panel swipping</p>
+    		<p>Geospatial visualisation integration</p>
+        </div>
+        <div data-role="collapsible">
+            <h1>Credits</h1>
+        	<p>Designer 1: Chen Qiu Rong (P1542093)</p>
+            <p>Designer 2: Daryl Loh Kai Heng(P1529591)</p>
+            <p>Designer 3: Bavani D/o Raman (P1551271)</p>
+        </div>
+    	<a href="" class="ui-btn ui-btn-icon-left ui-icon-delete" data-rel="back">Close</a>
+
+  </div> 
+<div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+      <li><a href="#feature" data-icon="grid" data-iconpos="top">Content</a></li>
+      <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+    </ul>
+  </div>
+  </div>
+</div><!--End About Page-->
+
