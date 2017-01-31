@@ -1,19 +1,18 @@
-<!doctype html>
-<html>
-    <!-- Include meta tag to ensure proper rendering and touch zooming -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Include Esri stylesheets -->
-    <link rel="stylesheet" href="https://js.arcgis.com/3.19/esri/css/esri.css">
-    <!-- Include jQuery Mobile stylesheets -->
-    <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
-    <head>
-        <meta charset="utf-8">
-        <title>Sungei Buloh Wetland Reserve</title>
-        <script src="js/jquery-2.2.4.js"></script>
-        <script src="js/jquery.mobile-1.4.5.js"></script>
-            <script src="js/jssor.slider-22.1.8.min.js" type="text/javascript"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
+
+    <!-- #region Jssor Slider Begin -->
+    <!-- Generator: Jssor Slider Maker -->
+    <!-- Source: http://www.jssor.com -->
+    <!-- This code works without jquery library. -->
+    <script src="js/jssor.slider-22.1.8.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         jssor_1_slider_init = function() {
 
@@ -81,39 +80,40 @@
             $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
             /*responsive code end*/
         };
-        </script>
-    </head>
-    <body>
-        <!-- Main Page -->
-        <div id="home" data-role="page" data-theme="b">
-            <div data-role="header">
-                <h1>Sungei Buloh Wetland Reserve</h1>
-            </div><!--page1 header-->
-            <div data-role="main" class="ui-content">
-                <p>Get to know where Sungei Buloh Wetland Reserve is located</p>
-                <div align="center">
-                    <img src="img/img1.png" width="250" height="300" alt=""/>
-                </div>
-                <a href="#map1" class="ui-btn">Locate Them</a> <!--button to load the location map-->
-            </div>
-            
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div><!--Main Page -->
-        
-        <!-- Feature Page -->
-        <div id="feature" data-role="page" data-theme="b">
-            <div data-role="header">
-                <h1>Sungei Buloh Wetland Reserve</h1>
-            </div><!--page1 header-->
-<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:800px;height:456px;overflow:hidden;visibility:hidden;background-color:#24262e;">
+    </script>
+    <style>
+        /* jssor slider arrow navigator skin 05 css */
+        /*
+        .jssora05l                  (normal)
+        .jssora05r                  (normal)
+        .jssora05l:hover            (normal mouseover)
+        .jssora05r:hover            (normal mouseover)
+        .jssora05l.jssora05ldn      (mousedown)
+        .jssora05r.jssora05rdn      (mousedown)
+        .jssora05l.jssora05lds      (disabled)
+        .jssora05r.jssora05rds      (disabled)
+        */
+        .jssora05l, .jssora05r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: url('img/a17.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora05l { background-position: -10px -40px; }
+        .jssora05r { background-position: -70px -40px; }
+        .jssora05l:hover { background-position: -130px -40px; }
+        .jssora05r:hover { background-position: -190px -40px; }
+        .jssora05l.jssora05ldn { background-position: -250px -40px; }
+        .jssora05r.jssora05rdn { background-position: -310px -40px; }
+        .jssora05l.jssora05lds { background-position: -10px -40px; opacity: .3; pointer-events: none; }
+        .jssora05r.jssora05rds { background-position: -70px -40px; opacity: .3; pointer-events: none; }
+        /* jssor slider thumbnail navigator skin 01 css *//*.jssort01 .p            (normal).jssort01 .p:hover      (normal mouseover).jssort01 .p.pav        (active).jssort01 .p.pdn        (mousedown)*/.jssort01 .p {    position: absolute;    top: 0;    left: 0;    width: 72px;    height: 72px;}.jssort01 .t {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;    border: none;}.jssort01 .w {    position: absolute;    top: 0px;    left: 0px;    width: 100%;    height: 100%;}.jssort01 .c {    position: absolute;    top: 0px;    left: 0px;    width: 68px;    height: 68px;    border: #000 2px solid;    box-sizing: content-box;    background: url('img/t01.png') -800px -800px no-repeat;    _background: none;}.jssort01 .pav .c {    top: 2px;    _top: 0px;    left: 2px;    _left: 0px;    width: 68px;    height: 68px;    border: #000 0px solid;    _border: #fff 2px solid;    background-position: 50% 50%;}.jssort01 .p:hover .c {    top: 0px;    left: 0px;    width: 70px;    height: 70px;    border: #fff 1px solid;    background-position: 50% 50%;}.jssort01 .p.pdn .c {    background-position: 50% 50%;    width: 68px;    height: 68px;    border: #000 2px solid;}* html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {    /* ie quirks mode adjust */    width /**/: 72px;    height /**/: 72px;}
+    </style>
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:800px;height:456px;overflow:hidden;visibility:hidden;background-color:#24262e;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
@@ -153,52 +153,5 @@
     </div>
     <script type="text/javascript">jssor_1_slider_init();</script>
     <!-- #endregion Jssor Slider End -->
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div> <!-- End of Feature Page -->
-        
-        <!-- About Page-->
-<div id="about" data-role="page" data-theme="b">
-  <div data-role="header">
-    <h1>About</h1>
-  </div><!--About header-->
-  <div data-role="main" class="ui-content">
-        <div data-role="collapsible">
-            <h1>Description</h1>
-        	<p>This is an app about the Sungei Buloh Wetland Reserve.</p>
-            <p>It is First Singapore's ASEAN Heritage Park.</p>
-            <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network
-As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forests.</p>
-        </div>
-        <div data-role="collapsible">
-            <h1>Features</h1>
-        	<p>Exciting panel swipping</p>
-    		<p>Geospatial visualisation integration</p>
-        </div>
-        <div data-role="collapsible">
-            <h1>Credits</h1>
-        	<p>Designer 1: Chen Qiu Rong (P1542093)</p>
-            <p>Designer 2: Daryl Loh Kai Heng(P1529591)</p>
-            <p>Designer 3: Bavani D/o Raman (P1551271)</p>
-        </div>
-    	<a href="" class="ui-btn ui-btn-icon-left ui-icon-delete" data-rel="back">Close</a>
-
-  </div> 
-<div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#feature" data-icon="grid" data-iconpos="top">Content</a></li>
-      <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-    </ul>
-  </div>
-  </div>
-</div><!--End About Page-->
-
+</body>
+</html>
