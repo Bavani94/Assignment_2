@@ -114,3 +114,83 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+<!-- Silder -->
+/* jssor slider arrow navigator skin 05 css */
+/*
+.jssora05l                  (normal)
+.jssora05r                  (normal)
+.jssora05l:hover            (normal mouseover)
+.jssora05r:hover            (normal mouseover)
+.jssora05l.jssora05ldn      (mousedown)
+.jssora05r.jssora05rdn      (mousedown)
+.jssora05l.jssora05lds      (disabled)
+.jssora05r.jssora05rds      (disabled)
+*/
+.jssora05l, .jssora05r {
+    padding: 0;
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* jssor slider thumbnail navigator skin 01 css */
+/*.jssort01 .p            (normal).jssort01 .p:hover      (normal mouseover).jssort01 .p.pav        (active).jssort01 .p.pdn        (mousedown)
+*/
+.jssort01 .p {   
+    position: absolute;    
+    top: 0;    
+    left: 0;   
+    width: 300px;   
+    height: 300px;
+}
+.jssort01 .t {    
+    position: absolute;    
+    top: 0;   
+    left: 0;   
+    width: 100%;  
+    height: 100%;   
+    border: none;
+}
+.jssort01 .w {  
+    position: absolute;  
+    top: 0px;    left: 0px;  
+    width: 100%;  
+    height: 100%;
+}
+.jssort01 .c {   
+    position: absolute; 
+    top: 0px;  
+    left: 0px;   
+    width: 68px;  
+    height: 68px;
+    _background: none;
+}
+.jssort01 .pav .c {   
+    top: 2px;  
+    _top: 0px;  
+    left: 2px;  
+    _left: 0px; 
+    width: 68px; 
+    height: 68px;  
+}
+.jssort01 .p:hover .c { 
+    top: 0px;  
+    left: 0px;  
+    width: 70px;  
+    height: 70px;  
+}
+.jssort01 .p.pdn .c {    
+    width: 68px;  
+    height: 68px;  
+}
+* html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {   
+    /* ie quirks mode adjust */   
+    width /**/: 300px;   
+    height /**/: 300px;
+}
+

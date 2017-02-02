@@ -168,8 +168,6 @@ h1 {
     left: 0px;   
     width: 68px;  
     height: 68px;
-    border: #000 2px solid;
-    box-sizing: content-box;  
     _background: none;
 }
 .jssort01 .pav .c {   
@@ -178,22 +176,17 @@ h1 {
     left: 2px;  
     _left: 0px; 
     width: 68px; 
-    height: 68px; 
-    border: #000 0px solid;   
-    _border: #fff 2px solid; 
-    background-position: 50% 50%;
+    height: 68px;  
 }
 .jssort01 .p:hover .c { 
     top: 0px;  
     left: 0px;  
     width: 70px;  
     height: 70px;  
-    border: #fff 1px solid; 
 }
 .jssort01 .p.pdn .c {    
     width: 68px;  
     height: 68px;  
-    border: #000 2px solid;
 }
 * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {   
     /* ie quirks mode adjust */   
