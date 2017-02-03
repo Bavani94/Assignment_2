@@ -235,6 +235,6 @@ jssor slider thumbnail navigator skin 01 css
 }
 * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {    
 /* ie quirks mode adjust */   
-    width /**/: 72px;   
-    height /**/: 72px;
+    width /**/: 100px;   
+    height /**/: 50px;
 }
