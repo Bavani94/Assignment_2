@@ -2,12 +2,13 @@
 <html>
     <!-- Include meta tag to ensure proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/Bootstrap.css">
     <!-- Include Esri stylesheets -->
     <link rel="stylesheet" href="https://js.arcgis.com/3.19/esri/css/esri.css">
     <!-- Include jQuery Mobile stylesheets -->
     <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
-
+    <link rel="stylesheet" href="js/jquery.mobile.icons.min.css" />
     <head>
         <meta charset="utf-8">
         <title>Sungei Buloh Wetland Reserve</title>
@@ -102,8 +103,8 @@ $(document).on("pagebeforeshow","#feature",function(){
     </head>
     <body>
         <!-- Main Page -->
-        <div id="home" data-role="page" data-theme="b">
-            <div data-role="header">
+        <div id="home" data-role="page" data-theme="a">
+            <div data-role="header" data-position="inline">
                 <h1>Sungei Buloh Wetland Reserve</h1>
             </div><!--page1 header-->
             <div data-role="main" class="ui-content">
@@ -126,28 +127,36 @@ $(document).on("pagebeforeshow","#feature",function(){
             </div><!--Main Page -->
         
         <!-- Feature Page -->
-        <div id="feature" data-role="page" data-theme="b">
-            <div data-role="header">
-                <h1>Sungei Buloh Wetland Reserve</h1>
+        <div id="feature" data-role="page" data-theme="a">
+            <div data-role="header" data-position="inline">
+                <h1>Pod for Coastral</h1>
             </div><!--page1 header-->
-            <div id="jssor_1" style="padding:0;position:relative;margin:0 auto;top:40px;left:0px;width:800px;height:800px;overflow:hidden;visibility:hidden;">
-                <!-- Loading Screen -->
-                <div data-u="loading" style="paddinf:0;position: absolute; top: 0px; left: 0px;">
-                    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">
-                    </div>
-                </div>
-                <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:800px;height:356px;overflow:hidden;">
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:800px;height:456px;overflow:hidden;visibility:hidden;background-color:#24262e;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:800px;height:356px;overflow:hidden;">
                     <div id="features">
                         <div id="mapDiv"></div>
-                        <img data-u="thumb" src="img/DragonflyPod.png" />
+                        <img data-u="thumb" src="img/FanTailPod.png" />
                     </div>
                     <div>
-                        <img data-u="image" src="img/02.jpg" />
-                        <img data-u="thumb" src="img/thumb-02.jpg" />
+                        <img data-u="image" src="img/01.jpg" />
+                        <img data-u="thumb" src="img/EaglePoint.png" />
                     </div>
                     <div>
                         <img data-u="image" src="img/03.jpg" />
-                        <img data-u="thumb" src="img/thumb-03.jpg" />
+                        <img data-u="thumb" src="img/KingFisherPod.png" />
+                    </div>
+                    <div>
+                        <img data-u="image" src="img/02.jpg" />
+                        <img data-u="thumb" src="img/MudSkipperPod.png" />
+                    </div>
+                    <div>
+                        <img data-u="image" src="img/03.jpg" />
+                        <img data-u="thumb" src="img/DragonflyPod.png" />
                     </div>
         </div>
         <!-- Thumbnail Navigator -->
@@ -169,20 +178,11 @@ $(document).on("pagebeforeshow","#feature",function(){
     </div>
     <script type="text/javascript">jssor_1_slider_init();</script>
     <!-- #endregion Jssor Slider End -->
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
-            </div>
         </div> <!-- End of Feature Page -->
         
         <!-- About Page-->
-<div id="about" data-role="page" data-theme="b">
-  <div data-role="header">
+<div id="about" data-role="page" data-theme="a">
+  <div data-role="header" data-position="inline">
     <h1>About</h1>
   </div><!--About header-->
   <div data-role="main" class="ui-content">
