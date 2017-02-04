@@ -87,7 +87,7 @@
         <script>
             var map;
 //Load the map just before showing page 2
-$(document).on("pagebeforeshow","#feature",function(){
+$(document).on("pagebeforeshow","#CTrail",function(){
 	if(map==null){
 		//alert("pagebeforeshow event fired - pagetwo is about to be shown");
 		require(["esri/map", "dojo/domReady!"], function(Map) {
@@ -119,19 +119,19 @@ $(document).on("pagebeforeshow","#feature",function(){
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#feature" data-icon="grid" data-iconpos="top">Features</a></li>
+                        <li><a href="#CTrail" data-icon="grid" data-iconpos="top">Coastral Trail</a></li>
                         <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
                     </ul>
                 </div>
             </div>
             </div><!--Main Page -->
         
-        <!-- Feature Page -->
-        <div id="feature" data-role="page" data-theme="a">
+        <!-- Coastral Trail Page -->
+        <div id="CTrail" data-role="page" data-theme="a">
             <div data-role="header" data-position="inline">
-                <h1>Pod for Coastral</h1>
+                <h1>Coastral Trail</h1>
             </div><!--page1 header-->
-    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:800px;height:500px;overflow:hidden;visibility:hidden;background-color:#24262e;">
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:85px;left:0px;width:800px;height:450px;overflow:hidden;visibility:hidden;background-color:#24262e;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
@@ -139,7 +139,7 @@ $(document).on("pagebeforeshow","#feature",function(){
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:800px;height:356px;overflow:hidden;">
             
-                    <div id="features">
+                    <div id="CTrail">
                         <div id="mapDiv"></div>
                         <img data-u="thumb" src="img/FanTailPod.png" />
                     </div>
@@ -179,6 +179,15 @@ $(document).on("pagebeforeshow","#feature",function(){
     </div>
     <script type="text/javascript">jssor_1_slider_init();</script>
     <!-- #endregion Jssor Slider End -->
+    <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+      <li><a href="#CTrail" data-icon="grid" data-iconpos="top">Coastral Trail</a></li>
+      <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+    </ul>
+  </div>
+  </div>
         </div> <!-- End of Feature Page -->
         
         <!-- About Page-->
@@ -212,7 +221,7 @@ As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forest
     <div data-role="navbar">
     <ul>
       <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#feature" data-icon="grid" data-iconpos="top">Content</a></li>
+      <li><a href="#CTrail" data-icon="grid" data-iconpos="top">Coastral Trail</a></li>
       <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
     </ul>
   </div>
