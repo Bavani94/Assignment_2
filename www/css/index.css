@@ -238,3 +238,20 @@ jssor slider thumbnail navigator skin 01 css
     width /**/: 100px;   
     height /**/: 50px;
 }
+
+/*Google Maps*/
+iframe {
+    width: 600px;
+    height: 500px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+
+iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
