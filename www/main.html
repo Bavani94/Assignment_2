@@ -87,7 +87,7 @@
         <script>
             var map;
 //Load the map just before showing page 2
-$(document).on("pagebeforeshow","#Trail",function(){
+$(document).on("pagebeforeshow","#trail",function(){
 	if(map==null){
 		//alert("pagebeforeshow event fired - pagetwo is about to be shown");
 		require(["esri/map", "dojo/domReady!"], function(Map) {
@@ -119,7 +119,8 @@ $(document).on("pagebeforeshow","#Trail",function(){
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#Trail" data-icon="grid" data-iconpos="top">Trails</a></li>
+                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                        <li><a href="#images" data-icon="grid" data-iconpos="top">Images</a></li>
                         <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
                     </ul>
                 </div>
@@ -140,17 +141,82 @@ $(document).on("pagebeforeshow","#Trail",function(){
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#Trail" data-icon="grid" data-iconpos="top">Trails</a></li>
+                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                        <li><a href="#images" data-icon="grid" data-iconpos="top">Images</a></li>
                         <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
                     </ul>
                 </div>
             </div>
             </div><!--Map End Page -->
         
-        <!-- Coastral Trail Page -->
-        <div id="Trail" data-role="page" data-theme="d">
+        <!-- Trail Page -->
+        <div id="trails" data-role="page" data-theme="d">
             <div data-role="header" data-position="inline">
-                <h1>Coastral Trail</h1>
+                <h1>Lets Know About The Differnet Trails</h1>
+            </div><!--page1 header-->
+            <div data-role="main" class="ui-content">
+                <p align="center">Coastral Trail</p>
+                <div align="center">
+                    <img src="img/coastraltrail.png" width="250" height="300" alt=""/>
+                </div>
+                <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <p align="center">Migratory Bird Trail</p>
+                <div align="center">
+                    <img src="img/migratorybirdtrail.png" width="250" height="300" alt=""/>
+                </div>
+                <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <p align="center">Forest Trail</p>
+                <div align="center">
+                    <img src="img/foresttrail.png" width="250" height="300" alt=""/>
+                </div>
+                <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <p align="center">Mid Canopy Walk</p>
+                <div align="center">
+                    <img src="img/midcanopywalk.png" width="250" height="300" alt=""/>
+                </div>
+                <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
+            </div>
+            
+    <div data-role="panel" id="left-panel">
+        <p>Left reveal panel.</p>
+        <a href="#" data-rel="close" class="ui-btn  ui-btn-icon-left ui-btn-right">Close</a>
+        <form>
+            <input data-type="search" id="filterControlgroup-input" class="ui-btn ui-btn-icon-left ui-icon-search">
+        </form>
+        <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 1</a>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 2</a>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all" data-filtertext="some text">Button 3</a>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 4</a>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 5</a>
+        </div>
+    </div><!-- /panel -->
+            
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                        <li><a href="#images" data-icon="grid" data-iconpos="top">Images</a></li>
+                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div><!--Main Page -->
+        
+        <!-- Image Page -->
+        <div id="images" data-role="page" data-theme="d">
+            <div data-role="header" data-position="inline">
+                <h1>Trails</h1>
             </div><!--page1 header-->
     <div id="jssor_1" style="position:relative;margin:0 auto;top:70px;left:0px;width:800px;height:450px;overflow:hidden;visibility:hidden;background-color:#24262e;">
         <!-- Loading Screen -->
@@ -160,13 +226,12 @@ $(document).on("pagebeforeshow","#Trail",function(){
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:800px;height:356px;overflow:hidden;">
             
-                    <div id="Trail">
+                    <div id="trail">
                         <div id="mapDiv"></div>
                         <img data-u="thumb" src="img/coastraltrail.png" />
                     </div>
                     <div>
                         <img data-u="image" src="img/01.jpg" />
-                        <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1zNGvuxD3SZPjk5EI3RcukUGD3jY" width="640" height="480"></iframe> -->
                         <img data-u="thumb" src="img/migratorybirdtrail.png" />
                     </div>
                     <div>
@@ -201,7 +266,8 @@ $(document).on("pagebeforeshow","#Trail",function(){
     <div data-role="navbar">
     <ul>
       <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#Trail" data-icon="grid" data-iconpos="top">Trails</a></li>
+      <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+      <li><a href="#images" data-icon="grid" data-iconpos="top">Images</a></li>
       <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
     </ul>
   </div>
@@ -232,8 +298,9 @@ As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forest
         	<p>Designer 1: Chen Qiu Rong (P1542093)</p>
             <p>Designer 2: Daryl Loh Kai Heng(P1529591)</p>
             <p>Designer 3: Bavani D/o Raman (P1551271)</p>
-            <br >
-            <p>DISM/FT/2B/02</p>
+            <br />
+            <p>From: Singapore Polytechnic</p>
+            <p>Class: DISM/FT/2B/02</p>
         </div>
     	<a href="" class="ui-btn ui-btn-icon-left ui-icon-delete" data-rel="back">Close</a>
 
@@ -242,10 +309,13 @@ As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forest
     <div data-role="navbar">
     <ul>
       <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#Trail" data-icon="grid" data-iconpos="top">Trails</a></li>
+        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+      <li><a href="#images" data-icon="grid" data-iconpos="top">Images</a></li>
       <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
     </ul>
   </div>
   </div>
 </div><!--End About Page-->
+    </body>
+</html>
 
