@@ -169,7 +169,8 @@ $( document ).on( "pagecreate", "#trails", function() {
             <div data-role="header" data-position="inline">
                 <h1>Different Trails</h1>
             </div><!--page1 header-->
-            <div data-role="main" class="ui-content" id="CT">
+            
+            <div id="ctrail" data-role="main" class="ui-content">
                 <p align="center">Coastral Trail</p>
                 <div align="center">
                     <img src="img/coastraltrail.png" width="250" height="300" alt=""/>
@@ -178,7 +179,7 @@ $( document ).on( "pagecreate", "#trails", function() {
                 <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div data-role="main" class="ui-content" id="MBT">
+            <div id="mbtrail" data-role="main" class="ui-content">
                 <p align="center">Migratory Bird Trail</p>
                 <div align="center">
                     <img src="img/migratorybirdtrail.png" width="250" height="300" alt=""/>
@@ -186,7 +187,7 @@ $( document ).on( "pagecreate", "#trails", function() {
                 <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div data-role="main" class="ui-content" id="FT">
+            <div id="ftrail" data-role="main" class="ui-content">
                 <p align="center">Forest Trail</p>
                 <div align="center">
                     <img src="img/foresttrail.png" width="250" height="300" alt=""/>
@@ -194,7 +195,7 @@ $( document ).on( "pagecreate", "#trails", function() {
                 <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div id="MCW" data-role="page" class="ui-content">
+            <div id="mcwalk" data-role="main" class="ui-content">
                 <p align="center">Mid Canopy Walk</p>
                 <div align="center">
                     <img src="img/midcanopywalk.png" width="250" height="300" alt=""/>
@@ -207,10 +208,10 @@ $( document ).on( "pagecreate", "#trails", function() {
             <input data-type="search" id="filterControlgroup-input">
         </form>
         <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-            <a href="#CT" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
-            <a href="#MBT" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
-            <a href="#FT" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
-            <a href="#MCW" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
+            <a href="#ctrail" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
+            <a href="#mbtrail" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
+            <a href="#ftrail" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
+            <a href="#mcwalk" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
         </div>
     
     <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
@@ -231,7 +232,7 @@ $( document ).on( "pagecreate", "#trails", function() {
         <!-- Map Page -->
         <div id="mappage" data-role="page" data-theme="d">
             <div data-role="header" data-position="inline">
-                <h1>Map Trails</h1>
+                <h1>Trails</h1>
             </div><!--page1 header-->
     <div id="jssor_1" style="position:relative;margin:0 auto;top:70px;left:0px;width:800px;height:450px;overflow:hidden;visibility:hidden;background-color:#24262e;">
         <!-- Loading Screen -->
@@ -296,7 +297,7 @@ $( document ).on( "pagecreate", "#trails", function() {
   </div><!--About header-->
   <div data-role="main" class="ui-content">
         <div data-role="collapsible">
-            <h1>Description</h1>
+            <h1>Introduction</h1>
         	<p>This is an app about the Sungei Buloh Wetland Reserve.</p>
             <p>It is First Singapore's ASEAN Heritage Park.</p>
             <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network
@@ -304,9 +305,9 @@ As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forest
         </div>
         <div data-role="collapsible">
             <h1>Trails</h1>
-        	<p>Image Slider that also shows it's locations. You peeps can either swipe or click the images which you want to see it's locations.</p>
+        	<p>It shows and talk about the trails</p>
             <br />
-    		<p>It shows the different Trails which are located at the Sungei Buloh Wetland Reserve.</p>
+    		<p>It will show location of those trails when click on the "Locate Them" button.</p>
         </div>
         <div data-role="collapsible">
             <h1>Credits Goes to:</h1>
@@ -324,7 +325,7 @@ As from 2016, the park includes a 202ha of mangroves, mudflats, ponds and forest
     <div data-role="navbar">
     <ul>
       <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+      <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
       <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
       <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
     </ul>
