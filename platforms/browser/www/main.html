@@ -99,6 +99,21 @@ $(document).on("pagebeforeshow","#trail",function(){
 		});
 	}
 });
+            
+$( document ).on( "pagecreate", "#content", function() {
+    $( document ).on( "swipeleft swiperight", "#content", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft" ) {
+                $( "#left-panel" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                $( "#left-panel" ).panel( "open" );
+            }
+        }
+    });
+});
         </script>
     </head>
     <body>
@@ -154,7 +169,7 @@ $(document).on("pagebeforeshow","#trail",function(){
             <div data-role="header" data-position="inline">
                 <h1>Lets Know About The Differnet Trails</h1>
             </div><!--page1 header-->
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" id="CT">
                 <p align="center">Coastral Trail</p>
                 <div align="center">
                     <img src="img/coastraltrail.png" width="250" height="300" alt=""/>
@@ -162,7 +177,7 @@ $(document).on("pagebeforeshow","#trail",function(){
                 <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" id="MBT">
                 <p align="center">Migratory Bird Trail</p>
                 <div align="center">
                     <img src="img/migratorybirdtrail.png" width="250" height="300" alt=""/>
@@ -170,7 +185,7 @@ $(document).on("pagebeforeshow","#trail",function(){
                 <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" id="FT">
                 <p align="center">Forest Trail</p>
                 <div align="center">
                     <img src="img/foresttrail.png" width="250" height="300" alt=""/>
@@ -178,7 +193,7 @@ $(document).on("pagebeforeshow","#trail",function(){
                 <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" id="MCW">
                 <p align="center">Mid Canopy Walk</p>
                 <div align="center">
                     <img src="img/midcanopywalk.png" width="250" height="300" alt=""/>
@@ -186,18 +201,17 @@ $(document).on("pagebeforeshow","#trail",function(){
                 <a href="#" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-    <div data-role="panel" id="left-panel">
+<div data-role="panel" id="left-panel">
         <p>Left reveal panel.</p>
-        <a href="#" data-rel="close" class="ui-btn  ui-btn-icon-left ui-btn-right">Close</a>
+        <a href="#" data-rel="close" class="ui-btn  ui-btn-icon-left ui-btn-right ui-icon-delete">Close</a>
         <form>
-            <input data-type="search" id="filterControlgroup-input" class="ui-btn ui-btn-icon-left ui-icon-search">
+            <input data-type="search" id="filterControlgroup-input">
         </form>
         <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 1</a>
-            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 2</a>
-            <a href="#" class="ui-btn ui-shadow ui-corner-all" data-filtertext="some text">Button 3</a>
-            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 4</a>
-            <a href="#" class="ui-btn ui-shadow ui-corner-all">Button 5</a>
+            <a href="#CT" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
+            <a href="#MBT" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
+            <a href="#FT" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
+            <a href="#MCW" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
         </div>
     </div><!-- /panel -->
             
