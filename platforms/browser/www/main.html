@@ -14,8 +14,8 @@
         <script src="js/jquery-2.2.4.js"></script>
         <script src="js/jquery.mobile-1.4.5.js"></script>
         <script>
-$( document ).on( "pagecreate", "#content", function() {
-    $( document ).on( "swipeleft swiperight", "#content", function( e ) {
+$( document ).on( "pagecreate", "#trails", function() {
+    $( document ).on( "swipeleft swiperight", "#trails", function( e ) {
         // We check if there is no open panel on the page because otherwise
         // a swipe to close the left panel would also open the right panel (and v.v.).
         // We do this by checking the data that the framework stores on the page element (panel: open).
@@ -114,8 +114,6 @@ $( document ).on( "pagecreate", "#content", function() {
             </div>
             
             <div id="mbtrail" data-role="main" class="ui-content">
-
-            <div data-role="main" class="ui-content" id="MBT">
                 <p align="center">Migratory Bird Trail</p>
                 <div align="center">
                     <img src="img/migratorybirdtrail.png" width="250" height="300" alt=""/>
@@ -125,8 +123,6 @@ $( document ).on( "pagecreate", "#content", function() {
             </div>
             
             <div id="ftrail" data-role="main" class="ui-content">
-
-            <div data-role="main" class="ui-content" id="FT">
                 <p align="center">Forest Trail</p>
                 <div align="center">
                     <img src="img/foresttrail.png" width="250" height="300" alt=""/>
@@ -136,9 +132,7 @@ $( document ).on( "pagecreate", "#content", function() {
                 <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
             
-            <div id="mcwalk" data-role="main" class="ui-content">
-
-            <div id="MCW" data-role="page" class="ui-content">
+            <div id="mcwalk" data-role="page" class="ui-content">
                 <p align="center">Mid Canopy Walk</p>
                 <div align="center">
                     <img src="img/midcanopywalk.png" width="250" height="300" alt=""/>
@@ -147,7 +141,7 @@ $( document ).on( "pagecreate", "#content", function() {
                 <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
             </div>
 
-<div data-role="panel" id="left-panel">
+              <div data-role="panel" id="left-panel">
         <form>
             <input data-type="search" id="filterControlgroup-input">
         </form>
@@ -157,10 +151,8 @@ $( document ).on( "pagecreate", "#content", function() {
             <a href="#ftrail" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
             <a href="#mcwalk" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
         </div>
-
-    <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
+                  <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
     </div><!-- /panel -->
-
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
