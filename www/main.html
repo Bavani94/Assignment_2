@@ -1,283 +1,335 @@
+<!--
+TODO:
+Change the damn words, all Capitalized??
+Home Page is the damn robot. Damn, need to get it changed.
+
+-->
+
+
 <!doctype html>
 <html>
-    <!-- Include meta tag to ensure proper rendering and touch zooming -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="js/Bootstrap.css">
-    <!-- Include Esri stylesheets -->
-    <!-- Include jQuery Mobile stylesheets -->
-    <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" href="js/jquery.mobile.icons.min.css" />
-    <head>
-        <meta charset="utf-8">
-        <title>Sungei Buloh Wetland Reserve</title>
-        <script src="js/jquery-2.2.4.js"></script>
-        <script src="js/jquery.mobile-1.4.5.js"></script>
-        <script>
-$( document ).on( "pagecreate", "#trails", function() {
-    $( document ).on( "swipeleft swiperight", "#trails", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft" ) {
-                $( "#left-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
+<!-- Include meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="js/Bootstrap.css">
+<!-- Include Esri stylesheets -->
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" href="js/jquery.mobile.icons.min.css" />
+
+<head>
+    <meta charset="utf-8">
+    <title>Sungei Buloh Wetland Reserve</title>
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script>
+        $(document).on("pagecreate", "#trails", function() {
+            $(document).on("swipeleft swiperight", "#trails", function(e) {
+                // We check if there is no open panel on the page because otherwise
+                // a swipe to close the left panel would also open the right panel (and v.v.).
+                // We do this by checking the data that the framework stores on the page element (panel: open).
+                if ($(".ui-page-active").jqmData("panel") !== "open") {
+                    if (e.type === "swipeleft") {
+                        $("#left-panel").panel("open");
+                    } else if (e.type === "swiperight") {
+                        $("#left-panel").panel("open");
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Google API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvb7dow6Wx1-p26gf0MHyuWVN4NPJ3cQQ">
+    </script>
+
+<!-- rendering. -->
+    <script>
+        function loadKmlLayer(src, map) {
+            var kmlLayer = new google.maps.KmlLayer(src);
+            kmlLayer.setMap(map);
+            // TODO: If you click the icon, it will appear something.
+            // google.maps.event.addListener(kmlLayer, 'click', function(event) {
+            //   var content = event.featureData.infoWindowHtml;
+            //   var testimonial = document.getElementById('capture');
+            //   testimonial.innerHTML = content;
+            // });
         }
-    });
-});
-        </script>
+        $(document).on("pageshow", "#map1", function() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng(-19.257753, 146.823688),
+                zoom: 2,
+                mapTypeId: 'terrain'
+            });
 
-        <script>
-        $( document ).on("pageshow", "#map1", function() {
-        //     var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
-        //     if ( navigator.geolocation ) {
-        //         function success(pos) {
-        //             // Location found, show map with these coordinates
-        //             drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        //         }
-        //         function fail(error) {
-        //             drawMap(defaultLatLng);  // Failed to find location, show default map
-        //         }
-        //         // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-        //         navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-        //     } else {
-        //         drawMap(defaultLatLng);  // No geolocation support, show default map
-        //     }
-        //     function drawMap(latlng) {
-        //         var myOptions = {
-        //             zoom: 10,
-        //             center: latlng,
-        //             mapTypeId: google.maps.MapTypeId.ROADMAP
-        //         };
-        //         var map = new google.maps.Map(document.getElementById("map"), myOptions);
-        //         // Add an overlay to the map of current lat/lng
-        //         var marker = new google.maps.Marker({
-        //             position: latlng,
-        //             map: map,
-        //             title: "Greetings!"
-        //         });
-        //     }
+            loadKmlLayer("http://www.chenqiurong.com/a.kmz", map)
 
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(-19.257753, 146.823688),
-          zoom: 2,
-          mapTypeId: 'terrain'
         });
 
-        var kmlLayer = new google.maps.KmlLayer("http://www.chenqiurong.com/a.kmz");
-        kmlLayer.setMap(map);
+        $(document).on("pageshow", "#coastalMap", function() {
+            var map = new google.maps.Map(document.getElementById('coastalMapDiv'), {
+                center: new google.maps.LatLng(-19.257753, 146.823688),
+                zoom: 2,
+                mapTypeId: 'terrain'
+            });
 
-        function loadKmlLayer(src, map) {
+            loadKmlLayer("http://www.chenqiurong.com/coastalMap.kmz", map)
+
+        });
 
 
-          // TODO: If you click the icon, it will appear something.
-          google.maps.event.addListener(kmlLayer, 'click', function(event) {
-            var content = event.featureData.infoWindowHtml;
-            var testimonial = document.getElementById('capture');
-            testimonial.innerHTML = content;
-          });
+        // Bicycle Layering
+        // $(document).on("pageshow", "#coastalMap", function() {
+        //   var map = new google.maps.Map(document.getElementById('coastalMapDiv'), {
+        //     zoom: 14,
+        //     center: {lat: 1.44023 , lng: 103.73526}
+        //   });
+        //
+        //     var bikeLayer = new google.maps.BicyclingLayer();
+        //     bikeLayer.setMap(map);
+        //
+        // });
+    </script>
+
+
+    <style>
+        #map1,#map,#coastalMap,#coastalMapDiv {
+            width: 100%;
+            height: 80%;
         }
+    </style>
+</head>
 
-      });
+<body>
 
-
-        </script>
-
-           <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvb7dow6Wx1-p26gf0MHyuWVN4NPJ3cQQ">
-          </script>
-
-          <style>
-            #map1, #map {
-              width:100%;
-              height:80%;
-            }
-
-          </style>
-    </head>
-    <body>
-        <!-- Main Page -->
-        <div id="home" data-role="page" data-theme="d">
-            <div data-role="header" data-position="inline">
-                <h1>Sungei Buloh Wetland Reserve</h1>
-            </div><!--page1 header-->
-            <div data-role="main" class="ui-content">
-                <p>Get to know where Sungei Buloh Wetland Reserve is located</p>
-                <div align="center">
-                    <img src="img/img1.png" width="250" height="300" alt=""/>
-                </div>
-                <a href="#map-page" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
-            </div>
-
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                        <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div><!--Main Page -->
-
-         <!-- Map Page -->
-        <div id="map1" data-role="map-page" data-theme="d" data-url="map-page">
-            <div data-role="header">
-                <h1>Location</h1>
-            </div><!--page1 header-->
-
-            <div role="main" class="ui-content" id="map">
-                <!-- map loads here... -->
-            </div>
-
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                        <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div><!--Map End Page -->
-
-
-        <!-- Trail Page -->
-        <div id="trails" data-role="page" data-theme="d">
-            <div data-role="header" data-position="inline">
-                <h1>Different Trails</h1>
-            </div><!--page1 header-->
-            <div id="ctrail" data-role="main" class="ui-content">
-                <!--<a name="coastal" align="center">Coastral Trail</a>-->
-                <p align="center">Coastal Trail</p>
-                <div align="center">
-                    <img src="img/coastraltrail.png" width="250" height="300" alt=""/>
-                </div>
-                <p>There may things happening around the Coastal Trail. </p>
-                <p>There are 5 pods; The Fantail Pod, Eagle Point, KingFisher, Mudskipper Pod and Dragonfly Pod which attracts foreigners and local citizens. Five pods have been constructed at various locations around the wetland reserve extension. These raised viewing platforms allow visitors unobstructed views of the reserve and the sea. </p> <p>An exception is the Dragonfly Pod, which is located inland and overlooks a freshwater pond, where one can catch glimpses of dragonflies and damselflies.</p>
-                        <p>There is also a Visitor Center to help people when they are lost or need guidance </p>
-                <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
-            </div>
-
-            <div id="mbtrail" data-role="main" class="ui-content">
-                <!--<a name="migratory" align="center">Migratory Bird Trail</a>-->
-                <p align="center">Migratory Bird Trail</p>
-                <div align="center">
-                    <img src="img/migratorybirdtrail.png" width="250" height="300" alt=""/>
-                </div>
-                <p>The Migratory Bird Trail is the main attraction.</p> <p>Thousand of birds arrives at the Reserve every year in August/September.</p>
-                <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
-            </div>
-
-            <div id="ftrail" data-role="main" class="ui-content">
-                <!--<a name="forest" align="center">Forest Trail</a>-->
-                <p align="center">Forest Trail</p>
-                <div align="center">
-                    <img src="img/foresttrail.png" width="250" height="300" alt=""/>
-                </div>
-                <p>The Forest Trail offers visitors the chance to experience the sights and sounds of the reserve up close, and learn more about the plants and wildlife which are unique to the reserve.</p>
-                <p>When you trek along the boardwalk you will be brought to many mangroves. But the real challenge for the kids will be trying to pinpoint the elusive mudskipper - which you will manage to do so after some time!</p>
-                <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
-            </div>
-
-            <div id="mcwalk" data-role="main" class="ui-content">
-                <!--<a name="canopy" align="center">Mid Canopy Walk</a>-->
-                <p align="center">Mid Canopy Walk</p>
-                <div align="center">
-                    <img src="img/midcanopywalk.png" width="250" height="300" alt=""/>
-                </div>
-                <p> Mid-canopy Walk immerses visitors in the understory of a secondary forest through an elevated, 120m-long boardwalk, where they can spot birds and insects like cicadas that reside in the mid-canopy region and forest floor</p>
-                <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a> <!--button to load the location map-->
-            </div>
-                       <div data-role="panel" id="left-panel">
-        <form>
-            <input data-type="search" id="filterControlgroup-input">
-        </form>
-        <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-            <a href="#coastal" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
-            <a href="#migratory" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
-            <a href="#forest" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
-            <a href="#canopy" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
+    <!-- Main Page -->
+    <div id="home" data-role="page" data-theme="d">
+        <div data-role="header" data-position="inline">
+            <h1>Sungei Buloh Wetland Reserve</h1>
         </div>
-                  <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
-    </div><!-- /panel -->
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                        <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                        <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                        <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                    </ul>
-                </div>
+        <!--page1 header-->
+        <div data-role="main" class="ui-content">
+            <p>Get to know more about Sungei Buloh Wetland Reserve!</p>
+            <div align="center">
+                <img src="img/img1.png" width="250" height="300" alt="" />
             </div>
-            </div><!--Main Page -->
-
-        <!-- Map Page -->
-        <div id="mappage" data-role="page" data-theme="d">
-            <div data-role="header" data-position="inline">
-                <h1>Trails</h1>
-            </div><!--page1 header-->
-    <!-- #endregion Jssor Slider End -->
-    <div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-      <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-      <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-    </ul>
-  </div>
-  </div>
-        </div> <!-- End of Feature Page -->
-
-        <!-- About Page-->
-<div id="about" data-role="page" data-theme="d">
-  <div data-role="header" data-position="inline">
-    <h1>About</h1>
-  </div><!--About header-->
-  <div data-role="main" class="ui-content">
-        <div data-role="collapsible">
-            <h1>Introduction</h1>
-        	<p>This is an app about the Sungei Buloh Wetland Reserve.</p>
-            <p>It is First Singapore's ASEAN Heritage Park.</p>
-            <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network.
-As from 2016, the park includes a 202 hectares of mangroves, mudflats, ponds and forests.</p>
+            <a href="#map-page" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <!--button to load the location map-->
         </div>
-        <div data-role="collapsible">
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!--Main Page -->
+
+    <!-- Map Page -->
+    <div id="map1" data-role="map-page" data-theme="d" data-url="map-page">
+
+        <!--page1 header-->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="map">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Map End Page -->
+
+    <!-- Trail Page -->
+    <div id="trails" data-role="page" data-theme="d">
+        <div data-role="header" data-position="inline">
+            <h1>Different Trails</h1>
+        </div>
+        <!--page1 header-->
+
+        <div id="ctrail" data-role="main" class="ui-content">
+            <p align="center">Coastal Trail</p>
+
+            <div align="center">
+                <img src="img/coastraltrail.png" width="250" height="300" alt="" />
+            </div>
+
+            <p>There may things happening around the Coastal Trail. </p>
+            <p>There are 5 pods; The Fantail Pod, Eagle Point, KingFisher, Mudskipper Pod and Dragonfly Pod which attracts foreigners and local citizens. Five pods have been constructed at various locations around the wetland reserve extension. These raised
+                viewing platforms allow visitors unobstructed views of the reserve and the sea. </p>
+            <p>An exception is the Dragonfly Pod, which is located inland and overlooks a freshwater pond, where one can catch glimpses of dragonflies and damselflies.</p>
+            <p>There is also a Visitor Center to help people when they are lost or need guidance </p>
+
+            <a href="#coastalMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <!--button to load the location map-->
+        </div>
+
+
+        <div id="mbtrail" data-role="main" class="ui-content">
+            <!--<a name="migratory" align="center">Migratory Bird Trail</a>-->
+            <p align="center">Migratory Bird Trail</p>
+            <div align="center">
+                <img src="img/migratorybirdtrail.png" width="250" height="300" alt="" />
+            </div>
+            <p>The Migratory Bird Trail is the main attraction.</p>
+            <p>Thousand of birds arrives at the Reserve every year in August/September.</p>
+            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <!--button to load the location map-->
+        </div>
+
+        <div id="ftrail" data-role="main" class="ui-content">
+            <!--<a name="forest" align="center">Forest Trail</a>-->
+            <p align="center">Forest Trail</p>
+            <div align="center">
+                <img src="img/foresttrail.png" width="250" height="300" alt="" />
+            </div>
+            <p>The Forest Trail offers visitors the chance to experience the sights and sounds of the reserve up close, and learn more about the plants and wildlife which are unique to the reserve.</p>
+            <p>When you trek along the boardwalk you will be brought to many mangroves. But the real challenge for the kids will be trying to pinpoint the elusive mudskipper - which you will manage to do so after some time!</p>
+            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <!--button to load the location map-->
+        </div>
+
+        <div id="mcwalk" data-role="main" class="ui-content">
+            <!--<a name="canopy" align="center">Mid Canopy Walk</a>-->
+            <p align="center">Mid Canopy Walk</p>
+            <div align="center">
+                <img src="img/midcanopywalk.png" width="250" height="300" alt="" />
+            </div>
+            <p> Mid-canopy Walk immerses visitors in the understory of a secondary forest through an elevated, 120m-long boardwalk, where they can spot birds and insects like cicadas that reside in the mid-canopy region and forest floor</p>
+            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <!--button to load the location map-->
+        </div>
+        <div data-role="panel" id="left-panel">
+            <form>
+                <input data-type="search" id="filterControlgroup-input">
+            </form>
+            <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+                <a href="#coastal" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
+                <a href="#migratory" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
+                <a href="#forest" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
+                <a href="#canopy" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
+            </div>
+            <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
+        </div>
+        <!-- /panel -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Main Page -->
+
+
+
+    <!--  -->
+    <div id="coastalMap" data-role="map-page" data-theme="d" data-url="coastalMap">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="coastalMapDiv">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Page -->
+    <div id="mappage" data-role="page" data-theme="d">
+        <div data-role="header" data-position="inline">
             <h1>Trails</h1>
-        	<p>It shows and talks about the trails</p>
-            <br />
-    		<p>It will show the locations of those trails when you click on the "Locate Them" button.</p>
         </div>
-        <div data-role="collapsible">
-            <h1>Credits Goes to:</h1>
-        	<p>Designer 1: Chen Qiu Rong (P1542093)</p>
-            <p>Designer 2: Daryl Loh Kai Heng(P1529591)</p>
-            <p>Designer 3: Bavani D/o Raman (P1551271)</p>
-            <br />
-            <p>From: Singapore Polytechnic</p>
-            <p>Class: DISM/FT/2B/02</p>
+        <!--page1 header-->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
         </div>
-    	<a href="" class="ui-btn ui-btn-icon-left ui-icon-delete" data-rel="back">Close</a>
+    </div>
+    <!-- End of Feature Page -->
 
-  </div>
-<div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-      <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-      <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-      <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-    </ul>
-  </div>
-  </div>
-</div><!--End About Page-->
-    </body>
+    <!-- About Page-->
+    <div id="about" data-role="page" data-theme="d">
+        <div data-role="header" data-position="inline">
+            <h1>About</h1>
+        </div>
+        <!--About header-->
+        <div data-role="main" class="ui-content">
+            <div data-role="collapsible">
+                <h1>Introduction</h1>
+                <p>This is an app about the Sungei Buloh Wetland Reserve.</p>
+                <p>It is First Singapore's ASEAN Heritage Park.</p>
+                <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network. As from 2016, the park includes a 202 hectares of mangroves, mudflats, ponds and forests.</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>Trails</h1>
+                <p>It shows and talks about the trails</p>
+                <br />
+                <p>It will show the locations of those trails when you click on the "Locate Them" button.</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>Credits Goes to:</h1>
+                <p>Designer 1: Chen Qiu Rong (P1542093)</p>
+                <p>Designer 2: Daryl Loh Kai Heng(P1529591)</p>
+                <p>Designer 3: Bavani D/o Raman (P1551271)</p>
+                <br />
+                <p>From: Singapore Polytechnic</p>
+                <p>Class: DISM/FT/2B/02</p>
+            </div>
+            <a href="" class="ui-btn ui-btn-icon-left ui-icon-delete" data-rel="back">Close</a>
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--End About Page-->
+</body>
+
 </html>
