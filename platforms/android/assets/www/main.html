@@ -1,11 +1,8 @@
 <!--
-TODO:
-Change the damn words, all Capitalized??
-Home Page is the damn robot. Damn, need to get it changed.
+
+
 
 -->
-
-
 <!doctype html>
 <html>
 <!-- Include meta tag to ensure proper rendering and touch zooming -->
@@ -44,233 +41,9 @@ Home Page is the damn robot. Damn, need to get it changed.
     </script>
 
     <!-- rendering. -->
-    <script>
-        function loadKmlLayer(src, map) {
-            var kmlLayer = new google.maps.KmlLayer(src);
-            kmlLayer.setMap(map);
-        }
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 
-        // The whole map
-        $(document).on("pageshow", "#map1", function() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 2,
-                mapTypeId: 'roadmap'
-            });
-            loadKmlLayer("http://www.chenqiurong.com/a.kmz", map)
-        });
-
-        // Coastal Trail rendering
-        $(document).on("pageshow", "#coastalMap", function() {
-            var map = new google.maps.Map(document.getElementById('coastalMapDiv'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 2,
-                mapTypeId: 'terrain'
-            });
-
-            loadKmlLayer("http://www.chenqiurong.com/coastal_trail1.kmz", map)
-
-        });
-
-        // Migratory Trail rendering
-        $(document).on("pageshow", "#migratoryMap", function() {
-            var map = new google.maps.Map(document.getElementById('migratoryMapDiv'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 2,
-                mapTypeId: 'terrain'
-            });
-
-            loadKmlLayer("http://www.chenqiurong.com/Migratory_Bird_Trail.kmz", map)
-
-        });
-
-        // Forest Trail rendering
-        $(document).on("pageshow", "#forestMap", function() {
-            var map = new google.maps.Map(document.getElementById('forestMapDiv'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 2,
-                mapTypeId: 'terrain'
-            });
-
-            loadKmlLayer("http://www.chenqiurong.com/Forest_Trail1.kmz", map)
-
-        });
-
-        // Forest Trail rendering
-        $(document).on("pageshow", "#midCanopyMap", function() {
-            var map = new google.maps.Map(document.getElementById('midCanopyMapDiv'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 2,
-                mapTypeId: 'terrain'
-            });
-            loadKmlLayer("http://www.chenqiurong.com/Mid_Canopy_Walk1.kmz", map)
-        });
-
-
-
-        // Bus Locations
-        $(document).on("pageshow", "#getthere", function() {
-          var map
-            map = new google.maps.Map(document.getElementById('getthereMapDiv'), {
-                center: new google.maps.LatLng(1.44023, 103.73526),
-                zoom: 14,
-                mapTypeId: 'roadmap'
-            });
-            // Create marker
-            var marker = new google.maps.Marker({
-              map: map,
-              position: new google.maps.LatLng(1.44023, 103.73526),
-              title: 'Sungei Buloh Radius'
-            });
-
-            // Add circle overlay and bind to marker
-            var circle = new google.maps.Circle({
-              map: map,
-              radius: 1000,    // 10 miles in metres
-              fillColor: '#AA0000'
-            });
-            circle.bindTo('center', marker, 'position');
-
-            var request = {
-                location: new google.maps.LatLng(1.44023, 103.73526),
-                radius: 1000,
-                types: ['train_station', 'bus_station', 'subway_station', 'transit_station']
-            };
-            
-            infowindow = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
-            service.search(request, callback);
-
-            function callback(results, status) {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        createMarker(results[i]);
-                    }
-                }
-            }
-
-            function createMarker(place) {
-
-                var placeLoc = place.geometry.location;
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: place.geometry.location
-                });
-                var content = '<strong style="font-size:1.2em">' + place.name + '</strong>' +
-                    '<br/><strong>Latitude:</strong>' + placeLoc.lat() +
-                    '<br/><strong>Longitude:</strong>' + placeLoc.lng() +
-                    '<br/><strong>Type:</strong>' + place.types[0] +
-                    '<br/><strong>Rating:</strong>' + (place.rating || 'n/a');
-                var more_content = '<img src="http://googleio2009-map.googlecode.com/svn-history/r2/trunk/app/images/loading.gif"/>';
-
-                //make a request for further details
-                service.getDetails({
-                    reference: place.reference
-                }, function(place, status) {
-                    if (status == google.maps.places.PlacesServiceStatus.OK) {
-                        more_content = '<hr/><strong><a href="' + place.url + '" target="details">Details</a>';
-
-                        if (place.website) {
-                            more_content += '<br/><br/><strong><a href="' + place.website + '" target="details">' + place.website + '</a>';
-                        }
-                    }
-                });
-
-
-                google.maps.event.addListener(marker, 'click', function() {
-
-                    infowindow.setContent(content + more_content);
-                    infowindow.open(map, this);
-                });
-            }
-        });
-
-
-                // Food Locations
-                $(document).on("pageshow", "#hungry", function() {
-                    var map = new google.maps.Map(document.getElementById('hungryMapDiv'), {
-                        center: new google.maps.LatLng(1.44023, 103.73526),
-                        zoom: 14,
-                        mapTypeId: 'roadmap'
-                    });
-
-                    var request = {
-                        location: new google.maps.LatLng(1.44023, 103.73526),
-                        radius: 2500,
-                        types: ['restaurant']
-                    };
-                    infowindow = new google.maps.InfoWindow();
-                    var service = new google.maps.places.PlacesService(map);
-                    service.search(request, callback);
-
-                    function callback(results, status) {
-                        if (status == google.maps.places.PlacesServiceStatus.OK) {
-                            for (var i = 0; i < results.length; i++) {
-                                createMarker(results[i]);
-                            }
-                        }
-                    }
-
-                    function createMarker(place) {
-
-                        var placeLoc = place.geometry.location;
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: place.geometry.location
-                        });
-                        var content = '<strong style="font-size:1.2em">' + place.name + '</strong>' +
-                            '<br/><strong>Latitude:</strong>' + placeLoc.lat() +
-                            '<br/><strong>Longitude:</strong>' + placeLoc.lng() +
-                            '<br/><strong>Type:</strong>' + place.types[0] +
-                            '<br/><strong>Rating:</strong>' + (place.rating || 'n/a');
-                        var more_content = '<img src="http://googleio2009-map.googlecode.com/svn-history/r2/trunk/app/images/loading.gif"/>';
-
-                        //make a request for further details
-                        service.getDetails({
-                            reference: place.reference
-                        }, function(place, status) {
-                            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                more_content = '<hr/><strong><a href="' + place.url + '" target="details">Details</a>';
-
-                                if (place.website) {
-                                    more_content += '<br/><br/><strong><a href="' + place.website + '" target="details">' + place.website + '</a>';
-                                }
-                            }
-                        });
-
-
-                        google.maps.event.addListener(marker, 'click', function() {
-
-                            infowindow.setContent(content + more_content);
-                            infowindow.open(map, this);
-                        });
-                    }
-                });
-
-
-
-    </script>
-
-
-    <style>
-        #map1,
-        #map,
-        #coastalMap,
-        #coastalMapDiv,
-        #migratoryMap,
-        #migratoryMapDiv,
-        #forestMap,
-        #forestMapDiv,
-        #midCanopyMap,
-        #midCanopyMapDiv,
-        #getthere,
-        #getthereMapDiv,
-        #hungry,
-        #hungryMapDiv {
-            width: 100%;
-            height: 80%;
-        }
-    </style>
 </head>
 
 <body>
@@ -282,9 +55,9 @@ Home Page is the damn robot. Damn, need to get it changed.
         </div>
         <!--page1 header-->
         <div data-role="main" class="ui-content">
-            <p>Get to know more about Sungei Buloh Wetland Reserve!</p>
+            <h1>Get to know more about Sungei Buloh Wetland Reserve!</h1>
             <div align="center">
-                <img src="img/img1.png" width="250" height="300" alt="" />
+                <img src="img/img1.png" width=100% height=30% alt="" />
             </div>
             <a href="#map-page" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
             <!--button to load the location map-->
@@ -295,7 +68,7 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
@@ -306,29 +79,57 @@ Home Page is the damn robot. Damn, need to get it changed.
 
     <!-- Map Page -->
     <div id="map1" data-role="map-page" data-theme="d" data-url="map-page">
-
         <!--page1 header-->
         <div data-role="header">
             <h1>Location</h1>
         </div>
-
         <!-- map loads here... -->
         <div role="main" class="ui-content" id="map">
         </div>
 
+        <p> Overview of the whole Sungei Buloh Wetland Reserve </p>
+        <a href="#mainPage2" data-transition="slide">Know more about Sungei Buloh</a>
         <!-- Foot -->
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
+                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainPage2" data-role="page" data-theme="d" data-url="mainPage2">
+        <!--page1 header-->
+        <div data-role="header">
+            <h1>Sungei Buloh Wetland Reserve</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <img src="https://www.nparks.gov.sg/~/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/sungei-buloh/20141016_152426.jpg" width=100% height=50%>
+            <p>Sungei Buloh Wetland Reserve is the <b>first</b> Singapore's ASEAN Heritage Park</p>
+            <p>It was awarded a <b>certificate by Wetlands International</b>, marking the reserve's formal entry into the East Asian-Australasian Shorebird Site Network</p>
+            <p>In 2016, the park includes a <b>202ha</b> of mangroves, mudflats, ponds and forests</p>
+        </div>
+
+        <a href="#map1" data-transition="slide">Return to map</a>
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!--Map End Page -->
+
 
     <!-- Trail Page -->
     <div id="trails" data-role="page" data-theme="d">
@@ -338,18 +139,13 @@ Home Page is the damn robot. Damn, need to get it changed.
         <!--page1 header-->
 
         <div id="ctrail" data-role="main" class="ui-content">
-            <p align="center">Coastal Trail</p>
+            <h1 align="center">Coastal Trail</h1>
 
             <div align="center">
-                <img src="img/coastraltrail.png" width="250" height="300" alt="" />
+                <img src="img/coastraltrail.png" width=100% height=20% alt="" />
             </div>
 
-            <p>There may things happening around the Coastal Trail. </p>
-            <p>There are 5 pods; The Fantail Pod, Eagle Point, KingFisher, Mudskipper Pod and Dragonfly Pod which attracts foreigners and local citizens. Five pods have been constructed at various locations around the wetland reserve extension. These raised
-                viewing platforms allow visitors unobstructed views of the reserve and the sea. </p>
-            <p>An exception is the Dragonfly Pod, which is located inland and overlooks a freshwater pond, where one can catch glimpses of dragonflies and damselflies.</p>
-            <p>There is also a Visitor Center to help people when they are lost or need guidance </p>
-
+            <p>Introducing the Fantail Pod, Eagle Point, KingFisher, Mudskipper Pod and Dragonfly Pod.</p>
             <a href="#coastalMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
             <!--button to load the location map-->
         </div>
@@ -357,9 +153,9 @@ Home Page is the damn robot. Damn, need to get it changed.
 
         <div id="mbtrail" data-role="main" class="ui-content">
             <!--<a name="migratory" align="center">Migratory Bird Trail</a>-->
-            <p align="center">Migratory Bird Trail</p>
+            <h1 align="center">Migratory Bird Trail</h1>
             <div align="center">
-                <img src="img/migratorybirdtrail.png" width="250" height="300" alt="" />
+                <img src="img/migratorybirdtrail.png" width=100% height=20% alt="" />
             </div>
             <p>The Migratory Bird Trail is the main attraction.</p>
             <p>Thousand of birds arrives at the Reserve every year in August/September.</p>
@@ -369,9 +165,9 @@ Home Page is the damn robot. Damn, need to get it changed.
 
         <div id="ftrail" data-role="main" class="ui-content">
             <!--<a name="forest" align="center">Forest Trail</a>-->
-            <p align="center">Forest Trail</p>
+            <h1 align="center">Forest Trail</h1>
             <div align="center">
-                <img src="img/foresttrail.png" width="250" height="300" alt="" />
+                <img src="img/foresttrail.png" width=100% height=20% alt="" />
             </div>
             <p>The Forest Trail offers visitors the chance to experience the sights and sounds of the reserve up close, and learn more about the plants and wildlife which are unique to the reserve.</p>
             <p>When you trek along the boardwalk you will be brought to many mangroves. But the real challenge for the kids will be trying to pinpoint the elusive mudskipper - which you will manage to do so after some time!</p>
@@ -381,9 +177,9 @@ Home Page is the damn robot. Damn, need to get it changed.
 
         <div id="mcwalk" data-role="main" class="ui-content">
             <!--<a name="canopy" align="center">Mid Canopy Walk</a>-->
-            <p align="center">Mid Canopy Walk</p>
+            <h1 align="center">Mid Canopy Walk</h1>
             <div align="center">
-                <img src="img/midcanopywalk.png" width="250" height="300" alt="" />
+                <img src="img/midcanopywalk.png" width=100% height=20% alt="" />
             </div>
             <p> Mid-canopy Walk immerses visitors in the understory of a secondary forest through an elevated, 120m-long boardwalk, where they can spot birds and insects like cicadas that reside in the mid-canopy region and forest floor</p>
             <a href="#midCanopyMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
@@ -409,32 +205,13 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!--Main Page -->
-
-    <!-- Map Page -->
-    <div id="mappage" data-role="page" data-theme="d">
-        <div data-role="header" data-position="inline">
-            <h1>Trails</h1>
-        </div>
-        <!--page1 header-->
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End of Feature Page -->
 
     <!-- About Page-->
     <div id="more" data-role="page" data-theme="d">
@@ -476,7 +253,7 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
@@ -494,6 +271,11 @@ Home Page is the damn robot. Damn, need to get it changed.
         <!-- map loads here... -->
         <div role="main" class="ui-content" id="coastalMapDiv">
         </div>
+        <p>
+            <a href="#coastalMapView" class="ui-btn ui-icon-info ui-btn-icon-left">More Information</a>
+        </p>
+        <a href="#coastalMapView" class="ui-btn ui-icon-location ui-btn-icon-left">Street View</a>
+
 
         <!-- Foot -->
         <div data-role="footer" data-position="fixed">
@@ -501,7 +283,7 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
@@ -518,28 +300,7 @@ Home Page is the damn robot. Damn, need to get it changed.
         <div role="main" class="ui-content" id="migratoryMapDiv">
         </div>
 
-        <!-- Foot -->
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="forestMap" data-role="page" data-theme="d" data-url="forestMap">
-        <!-- header -->
-        <div data-role="header">
-            <h1>Location</h1>
-        </div>
-
-        <!-- map loads here... -->
-        <div role="main" class="ui-content" id="forestMapDiv">
-        </div>
+        <a href="#migratoryMapView" class="ui-btn ui-icon-location ui-btn-icon-left">Street View</a>
 
         <!-- Foot -->
         <div data-role="footer" data-position="fixed">
@@ -547,7 +308,7 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
@@ -570,12 +331,90 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <div id="coastalMapView" data-role="page" data-theme="d" data-url="coastalMapView">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="coastalMapViewDiv">
+        </div>
+        <div role="main" class="ui-content" id="coastalpano">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+
+                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="migratoryMapView" data-role="page" data-theme="d" data-url="migratoryMapView">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="migratoryMapViewDiv">
+        </div>
+        <div role="main" class="ui-content" id="migratorypano">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+
+                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="forestMapView" data-role="page" data-theme="d" data-url="forestMapView">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="forestMapViewDiv">
+        </div>
+        <div role="main" class="ui-content" id="forestpano">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+
+                    <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="getthere" data-role="page" data-theme="d" data-url="getthere">
         <!-- header -->
@@ -593,7 +432,7 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>
@@ -610,13 +449,16 @@ Home Page is the damn robot. Damn, need to get it changed.
         <div role="main" class="ui-content" id="hungryMapDiv">
         </div>
 
+        <div role="main" class="ui-content">
+            <p> This is the food location that you can go that's within the 1km radius </p>
+        </div>
         <!-- Foot -->
         <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
                     <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                     <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+
                     <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
                 </ul>
             </div>

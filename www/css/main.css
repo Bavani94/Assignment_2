@@ -1,0 +1,38 @@
+#map1,
+#map,
+#coastalMap,
+#coastalMapDiv,
+#migratoryMap,
+#migratoryMapDiv,
+#forestMap,
+#forestMapDiv,
+#midCanopyMap,
+#midCanopyMapDiv,
+#getthere,
+#getthereMapDiv,
+#hungry,
+#hungryMapDiv {
+    width: 98%;
+    height: 70%;
+}
+
+
+#migratoryMapViewDiv,
+#migratoryMapView,
+#coastalMapView,
+#coastalMapViewDiv
+/*#forestMapView,
+#forestMapViewDiv*/
+{
+  width:100%;
+  height:20%;
+}
+
+#coastalpano,
+#migratorypano
+/*#forestpano,
+#canopypano*/
+{
+  width:100%;
+  height:70%;
+}
