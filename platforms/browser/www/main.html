@@ -1,7 +1,11 @@
 <!--
 TODO:
-Change the damn words, all Capitalized??
 Home Page is the damn robot. Damn, need to get it changed.
+More Advance features:
+StreetViews
+Radius.
+Nearby Amenities
+How to get there!
 
 -->
 
@@ -43,29 +47,24 @@ Home Page is the damn robot. Damn, need to get it changed.
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvb7dow6Wx1-p26gf0MHyuWVN4NPJ3cQQ">
     </script>
 
-<!-- rendering. -->
+    <!-- rendering. -->
     <script>
         function loadKmlLayer(src, map) {
             var kmlLayer = new google.maps.KmlLayer(src);
             kmlLayer.setMap(map);
-            // TODO: If you click the icon, it will appear something.
-            // google.maps.event.addListener(kmlLayer, 'click', function(event) {
-            //   var content = event.featureData.infoWindowHtml;
-            //   var testimonial = document.getElementById('capture');
-            //   testimonial.innerHTML = content;
-            // });
         }
+
+        // The whole map
         $(document).on("pageshow", "#map1", function() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: new google.maps.LatLng(-19.257753, 146.823688),
                 zoom: 2,
                 mapTypeId: 'terrain'
             });
-
             loadKmlLayer("http://www.chenqiurong.com/a.kmz", map)
-
         });
 
+        // Coastal Trail rendering
         $(document).on("pageshow", "#coastalMap", function() {
             var map = new google.maps.Map(document.getElementById('coastalMapDiv'), {
                 center: new google.maps.LatLng(-19.257753, 146.823688),
@@ -73,9 +72,46 @@ Home Page is the damn robot. Damn, need to get it changed.
                 mapTypeId: 'terrain'
             });
 
-            loadKmlLayer("http://www.chenqiurong.com/coastalMap.kmz", map)
+            loadKmlLayer("http://www.chenqiurong.com/coastal_trail1.kmz", map)
 
         });
+
+        // Migratory Trail rendering
+        $(document).on("pageshow", "#migratoryMap", function() {
+            var map = new google.maps.Map(document.getElementById('migratoryMapDiv'), {
+                center: new google.maps.LatLng(-19.257753, 146.823688),
+                zoom: 2,
+                mapTypeId: 'terrain'
+            });
+
+            loadKmlLayer("http://www.chenqiurong.com/Migratory_Bird_Trail.kmz", map)
+
+        });
+
+        // Forest Trail rendering
+        $(document).on("pageshow", "#forestMap", function() {
+            var map = new google.maps.Map(document.getElementById('forestMapDiv'), {
+                center: new google.maps.LatLng(-19.257753, 146.823688),
+                zoom: 2,
+                mapTypeId: 'terrain'
+            });
+
+            loadKmlLayer("http://www.chenqiurong.com/Forest_Trail1.kmz", map)
+
+        });
+
+        // Forest Trail rendering
+        $(document).on("pageshow", "#midCanopyMap", function() {
+            var map = new google.maps.Map(document.getElementById('midCanopyMapDiv'), {
+                center: new google.maps.LatLng(-19.257753, 146.823688),
+                zoom: 2,
+                mapTypeId: 'terrain'
+            });
+
+            loadKmlLayer("http://www.chenqiurong.com/Mid_Canopy_Walk1.kmz", map)
+
+        });
+
 
 
         // Bicycle Layering
@@ -93,7 +129,16 @@ Home Page is the damn robot. Damn, need to get it changed.
 
 
     <style>
-        #map1,#map,#coastalMap,#coastalMapDiv {
+        #map1,
+        #map,
+        #coastalMap,
+        #coastalMapDiv,
+        #migratoryMap,
+        #migratoryMapDiv,
+        #forestMap,
+        #forestMapDiv,
+        #midCanopyMap,
+        #midCanopyMapDiv {
             width: 100%;
             height: 80%;
         }
@@ -190,7 +235,7 @@ Home Page is the damn robot. Damn, need to get it changed.
             </div>
             <p>The Migratory Bird Trail is the main attraction.</p>
             <p>Thousand of birds arrives at the Reserve every year in August/September.</p>
-            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <a href="#migratoryMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
             <!--button to load the location map-->
         </div>
 
@@ -202,7 +247,7 @@ Home Page is the damn robot. Damn, need to get it changed.
             </div>
             <p>The Forest Trail offers visitors the chance to experience the sights and sounds of the reserve up close, and learn more about the plants and wildlife which are unique to the reserve.</p>
             <p>When you trek along the boardwalk you will be brought to many mangroves. But the real challenge for the kids will be trying to pinpoint the elusive mudskipper - which you will manage to do so after some time!</p>
-            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <a href="#forestMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
             <!--button to load the location map-->
         </div>
 
@@ -213,9 +258,11 @@ Home Page is the damn robot. Damn, need to get it changed.
                 <img src="img/midcanopywalk.png" width="250" height="300" alt="" />
             </div>
             <p> Mid-canopy Walk immerses visitors in the understory of a secondary forest through an elevated, 120m-long boardwalk, where they can spot birds and insects like cicadas that reside in the mid-canopy region and forest floor</p>
-            <a href="#mappage" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
+            <a href="#midCanopyMap" class="ui-btn ui-icon-location ui-btn-icon-left">Locate Them</a>
             <!--button to load the location map-->
         </div>
+
+
         <div data-role="panel" id="left-panel">
             <form>
                 <input data-type="search" id="filterControlgroup-input">
@@ -241,32 +288,6 @@ Home Page is the damn robot. Damn, need to get it changed.
         </div>
     </div>
     <!--Main Page -->
-
-
-
-    <!--  -->
-    <div id="coastalMap" data-role="map-page" data-theme="d" data-url="coastalMap">
-        <!-- header -->
-        <div data-role="header">
-            <h1>Location</h1>
-        </div>
-
-        <!-- map loads here... -->
-        <div role="main" class="ui-content" id="coastalMapDiv">
-        </div>
-
-        <!-- Foot -->
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
-                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <!-- Map Page -->
     <div id="mappage" data-role="page" data-theme="d">
@@ -330,6 +351,100 @@ Home Page is the damn robot. Damn, need to get it changed.
         </div>
     </div>
     <!--End About Page-->
+
+    <!--  -->
+    <div id="coastalMap" data-role="page" data-theme="d" data-url="coastalMap">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="coastalMapDiv">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="migratoryMap" data-role="page" data-theme="d" data-url="migratoryMap">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="migratoryMapDiv">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="forestMap" data-role="page" data-theme="d" data-url="forestMap">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="forestMapDiv">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="midCanopyMap" data-role="page" data-theme="d" data-url="midCanopyMap">
+        <!-- header -->
+        <div data-role="header">
+            <h1>Location</h1>
+        </div>
+
+        <!-- map loads here... -->
+        <div role="main" class="ui-content" id="midCanopyMapDiv">
+        </div>
+
+        <!-- Foot -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+                    <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
+                    <li><a href="#mappage" data-icon="grid" data-iconpos="top">Map</a></li>
+                    <li><a href="#about" data-icon="info" data-iconpos="top">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
