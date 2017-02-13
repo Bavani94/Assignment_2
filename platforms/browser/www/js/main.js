@@ -33,7 +33,7 @@ $(document).on("pageshow", "#map1", function () {
         zoom: 2,
         mapTypeId: 'roadmap'
     });
-    loadKmlLayer("http://www.chenqiurong.com/a1.kmz", map)
+    loadKmlLayer("http://www.chenqiurong.com/a2.kmz", map)
 });
 
 // Coastal Trail rendering
@@ -45,7 +45,7 @@ $(document).on("pageshow", "#coastalMap", function () {
         mapTypeId: 'terrain'
     });
 
-    loadKmlLayer("http://www.chenqiurong.com/coastal_trail1.kmz", map)
+    loadKmlLayer("http://www.chenqiurong.com/coastal_trail3.kmz", map)
 
 });
 
@@ -58,7 +58,7 @@ $(document).on("pageshow", "#migratoryMap", function () {
         mapTypeId: 'terrain'
     });
 
-    loadKmlLayer("http://www.chenqiurong.com/Migratory_Bird_Trail.kmz", map)
+    loadKmlLayer("http://www.chenqiurong.com/Migratory_Bird_Trail1.kmz", map)
 
 });
 
@@ -71,7 +71,7 @@ $(document).on("pageshow", "#forestMap", function () {
         mapTypeId: 'terrain'
     });
 
-    loadKmlLayer("http://www.chenqiurong.com/Forest_Trail1.kmz", map)
+    loadKmlLayer("http://www.chenqiurong.com/Forest_Trail2.kmz", map)
 
 });
 
@@ -83,7 +83,7 @@ $(document).on("pageshow", "#midCanopyMap", function () {
         zoom: 4,
         mapTypeId: 'terrain'
     });
-    loadKmlLayer("http://www.chenqiurong.com/Mid_Canopy_Walk1.kmz", map)
+    loadKmlLayer("http://www.chenqiurong.com/Mid_Canopy_Walk2.kmz", map)
 });
 
 
