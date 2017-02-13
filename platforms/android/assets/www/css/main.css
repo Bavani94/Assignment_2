@@ -7,13 +7,18 @@
 #forestMap,
 #forestMapDiv,
 #midCanopyMap,
-#midCanopyMapDiv,
+#midCanopyMapDiv
+{
+    width: 100%;
+    height: 70%;
+}
+
 #getthere,
 #getthereMapDiv,
 #hungry,
-#hungryMapDiv {
-    width: 100%;
-    height: 70%;
+#hungryMapDiv{
+    width:100%;
+    height:80%;
 }
 
 

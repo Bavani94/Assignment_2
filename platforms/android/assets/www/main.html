@@ -73,7 +73,6 @@
             </ul>
         </div>
     </div>
-
 </div>
 <!--Main Page -->
 
@@ -87,10 +86,11 @@
     <div role="main" class="ui-content" id="map">
     </div>
 
+    <p> Overview of the whole Sungei Buloh Wetland Reserve </p>
+
     <div role="main" class="ui-content MapInfo" style="visibility: hidden">
     </div>
 
-    <p> Overview of the whole Sungei Buloh Wetland Reserve </p>
     <a href="#mainPage2" data-transition="slide">Know more about Sungei Buloh</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
@@ -120,7 +120,7 @@
         <p>In 2016, the park includes a <b>202ha</b> of mangroves, mudflats, ponds and forests</p>
     </div>
 
-    <a href="#map1" data-transition="slide">Return to map</a>
+    <a href="#map1" data-transition="slide" class="ui-btn">Return to map</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -201,10 +201,10 @@
             <input data-type="search" id="filterControlgroup-input">
         </form>
         <div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
-            <a href="#coastal" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
-            <a href="#migratory" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
-            <a href="#forest" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
-            <a href="#canopy" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
+            <a href="#coastalMap" class="ui-btn ui-shadow ui-corner-all">Coastral Trail</a>
+            <a href="#migratoryMap" class="ui-btn ui-shadow ui-corner-all">Migratory Bird Trail</a>
+            <a href="#forestMap" class="ui-btn ui-shadow ui-corner-all">Forest Trail</a>
+            <a href="#midCanopyMap" class="ui-btn ui-shadow ui-corner-all">Mid Canopy Walk</a>
         </div>
         <a href="#trails" data-rel="close" class="ui-btn ui-btn-icon-left ui-icon-delete">Close</a>
     </div>
@@ -229,20 +229,12 @@
     </div>
     <!--About header-->
     <div data-role="main" class="ui-content">
-        <div data-role="collapsible">
-            <h1>Introduction</h1>
-            <p>This is an app about the Sungei Buloh Wetland Reserve.</p>
-            <p>It is First Singapore's ASEAN Heritage Park.</p>
-            <p>It was awarded a certificate by Wetlands International, marking the reserve's formal entry into the East
-                Asian-Australasian Shorebird Site Network. As from 2016, the park includes a 202 hectares of mangroves,
-                mudflats, ponds and forests.</p>
-        </div>
-        <div data-role="collapsible">
-            <h1>Trails</h1>
-            <p>It shows and talks about the trails</p>
-            <br/>
-            <p>It will show the locations of those trails when you click on the "Locate Them" button.</p>
-        </div>
+
+
+        <a href="#getthere" class="ui-btn ui-shadow ui-corner-all">Nearby Bus Stops</a>
+
+        <a href="#hungry" class="ui-btn ui-shadow ui-corner-all">Hungry Go Where?</a>
+
         <div data-role="collapsible">
             <h1>Credits Goes to:</h1>
             <p>Designer 1: Chen Qiu Rong (P1542093)</p>
@@ -252,11 +244,6 @@
             <p>From: Singapore Polytechnic</p>
             <p>Class: DISM/FT/2B/02</p>
         </div>
-
-        <a href="#getthere" class="ui-btn ui-shadow ui-corner-all">Nearby Bus Stops</a>
-
-        <a href="#hungry" class="ui-btn ui-shadow ui-corner-all">Hungry Go Where?</a>
-
 
     </div>
     <div data-role="footer" data-position="fixed">
@@ -328,7 +315,7 @@
         <p>Do not go near the mud area, watch out for those predators!!</p>
     </div>
 
-    <a href="#coastalMap" data-transition="slide">Return to map</a>
+    <a href="#coastalMap" data-transition="slide" class="ui-btn">Return to map</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -394,7 +381,7 @@
         </p>
     </div>
 
-    <a href="#migratoryMap" data-transition="slide">Return to map</a>
+    <a href="#migratoryMap" data-transition="slide" class="ui-btn">Return to map</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -448,7 +435,7 @@
             Linking the Forest and Coastal Trails is a 150-metre Mid-canopy Walk</p>
     </div>
 
-    <a href="#forestMap" data-transition="slide">Return to map</a>
+    <a href="#forestMap" data-transition="slide" class="ui-btn">Return to map</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -506,7 +493,7 @@
             gets covered with water during high tide and is off limits then.k</p>
     </div>
 
-    <a href="#forestMap" data-transition="slide">Return to map</a>
+    <a href="#forestMap" data-transition="slide" class="ui-btn">Return to map</a>
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -580,6 +567,10 @@
     <div role="main" class="ui-content" id="getthereMapDiv">
     </div>
 
+    <div role="main" class="ui-content">
+        <p> This is the bus stops that you can go that's within the 1km radius</p>
+    </div>
+
     <!-- Foot -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -612,7 +603,6 @@
             <ul>
                 <li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
                 <li><a href="#trails" data-icon="grid" data-iconpos="top">Trails</a></li>
-
                 <li><a href="#more" data-icon="info" data-iconpos="top">More</a></li>
             </ul>
         </div>
