@@ -12,7 +12,7 @@
 #getthereMapDiv,
 #hungry,
 #hungryMapDiv {
-    width: 98%;
+    width: 100%;
     height: 70%;
 }
 
@@ -35,4 +35,7 @@
 {
   width:100%;
   height:70%;
+}
+p{
+	font-size: 13px;
 }

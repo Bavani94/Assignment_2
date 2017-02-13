@@ -1,6 +1,21 @@
     function loadKmlLayer(src, map) {
-        var kmlLayer = new google.maps.KmlLayer(src);
+        var kmlLayer = new google.maps.KmlLayer({
+			url:src,
+			suppressInfoWindows: true,
+			map:map
+			
+		});
         kmlLayer.setMap(map);
+		
+//		kmlLayer.addListener('click', function(kmlEvent) {
+//          var text = kmlEvent.featureData.description;
+//          showInContentWindow(text);
+//        });
+//		
+//		function showInContentWindow(text) {
+//		  var sidediv = document.getElementById('content-coastal');
+//          sidediv.innerHTML = text;
+//		}
     }
 
     // The whole map
@@ -102,27 +117,6 @@
             });
         map.setStreetView(panorama);
     });
-
-    // Rendering Street view for forest trail
-    // $(document).on("pageshow", "#forestMapView", function() {
-    //     var map = new google.maps.Map(document.getElementById('forestMapViewDiv'), {
-    //         center: new google.maps.LatLng(1.44141, 103.73573,
-    //         zoom: 16,
-    //         mapTypeId: 'terrain'
-    //     });
-    //
-    //     loadKmlLayer("http://www.chenqiurong.com/Forest_Trail1.kmz", map)
-    //
-    //     var panorama = new google.maps.StreetViewPanorama(
-    //         document.getElementById('forestpano'), {
-    //             position: new google.maps.LatLng(1.44607, 103.72831),
-    //             pov: {
-    //                 heading: 34,
-    //                 pitch: 10
-    //             }
-    //         });
-    //     map.setStreetView(panorama);
-    // });
 
 
     // Bus Locations
